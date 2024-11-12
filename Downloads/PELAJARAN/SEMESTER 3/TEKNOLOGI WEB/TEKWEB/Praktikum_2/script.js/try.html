@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web sederhana saya</title>
+    <style>
+      body {
+        background-color: rgb(121, 119, 173);
+        font-family: "Verdana", sans-serif;
+        font-size: 16px;
+        color: black;
+      }
+      .dark-mode {
+        background-color: #1de095;
+        color: white;
+      }
+      h1 {
+        text-align: center;
+      }
+      .controls {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>selamat datang di web sederhana</h1>
+    <p>ini adalah contoh dari kesekian fitur yang bisa saya buat.</p>
+
+    <div class="controls">
+      <!-- Background Color Dropdown -->
+      <label for="bgColor">Background Color: </label>
+      <select id="bgColor">
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightyellow">Light Yellow</option>
+        <option value="lightcoral">Light Coral</option>
+        <option value="white">White</option>
+      </select>
+
+      <!-- Font Size Controls -->
+      <button id="increaseFont">Increase Font Size</button>
+      <button id="decreaseFont">Decrease Font Size</button>
+
+      <!-- Dark Mode Toggle -->
+      <button id="toggleDarkMode">Toggle Dark Mode</button>
+
+      <!-- Font Style Toggle -->
+      <button id="toggleFontStyle">Toggle Font Style</button>
+    </div>
+
+    <script>
+      // Change Background Color
+      const bgColorSelect = document.getElementById("bgColor");
+      bgColorSelect.addEventListener("change", function () {
+        document.body.style.backgroundColor = bgColorSelect.value;
+      });
+
+      // Font Size Controls
+      const increaseFontBtn = document.getElementById("increaseFont");
+      const decreaseFontBtn = document.getElementById("decreaseFont");
+      let fontSize = 16;
+
+      increaseFontBtn.addEventListener("click", function () {
+        fontSize += 2;
+        document.body.style.fontSize = fontSize + "px";
+      });
+
+      decreaseFontBtn.addEventListener("click", function () {
+        if (fontSize > 10) {
+          fontSize -= 2;
+          document.body.style.fontSize = fontSize + "px";
+        }
+      });
+
+      // Dark Mode Toggle
+      const toggleDarkModeBtn = document.getElementById("toggleDarkMode");
+      let darkMode = false;
+
+      toggleDarkModeBtn.addEventListener("click", function () {
+        darkMode = !darkMode;
+        if (darkMode) {
+          document.body.classList.add("dark-mode");
+        } else {
+          document.body.classList.remove("dark-mode");
+        }
+      });
+
+      // Font Style Toggle (Serif and Sans-serif)
+      const toggleFontStyleBtn = document.getElementById("toggleFontStyle");
+      let serifFont = false;
+
+      toggleFontStyleBtn.addEventListener("click", function () {
+        serifFont = !serifFont;
+        if (serifFont) {
+          document.body.style.fontFamily = "Georgia, serif";
+        } else {
+          document.body.style.fontFamily = "Verdana, sans-serif";
+        }
+      });
+    </script>
+  </body>
+</html>
